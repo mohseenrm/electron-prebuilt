@@ -36,6 +36,10 @@ if (installedVersion === version && fs.existsSync(path.join(__dirname, paths[pla
 }
 
 // downloads if not cached
+console.log('\nDEBUG :', process.env.npm_config_platform);
+console.log('\nDEBUG :', process.env.npm_config_arch);
+console.log('\nDEBUG :', process.env.npm_config_strict_ssl);
+
 download({version: version, platform: process.env.npm_config_platform, arch: process.env.npm_config_arch, strictSSL: process.env.npm_config_strict_ssl === 'true'}, extractFile)
 
 // unzips and makes path.txt point at the correct executable
