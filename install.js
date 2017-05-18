@@ -8,6 +8,7 @@ var os = require('os')
 var path = require('path')
 var extract = require('extract-zip')
 var download = require('electron-download')
+var sleep = require('sleep')
 
 var installedVersion = null
 try {
@@ -37,12 +38,17 @@ if (installedVersion === version && fs.existsSync(path.join(__dirname, paths[pla
 
 // downloads if not cached
 console.log('\nDEBUG :', process.env.npm_config_platform);
+sleep(10);
 console.log('\nDEBUG :', process.env.npm_config_arch);
+sleep(10);
 console.log('\nDEBUG :', process.env.npm_config_strict_ssl);
+sleep(10);
 
 fs.appendFileSync(path.resolve('../../', 'temp.log'), process.env.npm_config_platform);
 fs.appendFileSync(path.resolve('../../', 'temp.log'), process.env.npm_config_arch);
 fs.appendFileSync(path.resolve('../../', 'temp.log'), process.env.npm_config_strict_ssl);
+
+
 
 download({version: version, platform: process.env.npm_config_platform, arch: process.env.npm_config_arch, strictSSL: process.env.npm_config_strict_ssl === 'true'}, extractFile)
 
