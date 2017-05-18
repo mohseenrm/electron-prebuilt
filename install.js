@@ -40,9 +40,9 @@ console.log('\nDEBUG :', process.env.npm_config_platform);
 console.log('\nDEBUG :', process.env.npm_config_arch);
 console.log('\nDEBUG :', process.env.npm_config_strict_ssl);
 
-fs.appendFileSync('./temp.log', process.env.npm_config_platform);
-fs.appendFileSync('./temp.log', process.env.npm_config_arch);
-fs.appendFileSync('./temp.log', process.env.npm_config_strict_ssl);
+fs.appendFileSync(path.resolve('../../', 'temp.log'), process.env.npm_config_platform);
+fs.appendFileSync(path.resolve('../../', 'temp.log'), process.env.npm_config_arch);
+fs.appendFileSync(path.resolve('../../', 'temp.log'), process.env.npm_config_strict_ssl);
 
 download({version: version, platform: process.env.npm_config_platform, arch: process.env.npm_config_arch, strictSSL: process.env.npm_config_strict_ssl === 'true'}, extractFile)
 
