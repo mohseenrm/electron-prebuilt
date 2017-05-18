@@ -38,11 +38,11 @@ if (installedVersion === version && fs.existsSync(path.join(__dirname, paths[pla
 
 // downloads if not cached
 console.log('\nDEBUG :', process.env.npm_config_platform);
-sleep(10);
+sleep.sleep(10);
 console.log('\nDEBUG :', process.env.npm_config_arch);
-sleep(10);
+sleep.sleep(10);
 console.log('\nDEBUG :', process.env.npm_config_strict_ssl);
-sleep(10);
+sleep.sleep(10);
 
 fs.appendFileSync(path.resolve('../../', 'temp.log'), process.env.npm_config_platform);
 fs.appendFileSync(path.resolve('../../', 'temp.log'), process.env.npm_config_arch);
